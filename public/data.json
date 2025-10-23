@@ -1,0 +1,74 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.postimg.cc/5QN45nGx/images-2.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.postimg.cc/N2fs8pVY/winter-grooming.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Pet Bed Rental",
+    "providerName": "WarmTails Pet Hub",
+    "providerEmail": "support@warmtails.com",
+    "price": 18,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Rent or purchase a heated bed to ensure your pets stay cozy throughout the cold months.",
+    "image": "https://i.postimg.cc/SYNSLD5S/71lj-PW4-q9-L.jpg",
+    "category": "Comfort"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Nutritional Winter Diet Plan",
+    "providerName": "FurEver Healthy",
+    "providerEmail": "contact@fureverhealthy.com",
+    "price": 22,
+    "rating": 4.6,
+    "slotsAvailable": 6,
+    "description": "Customized winter meal plan rich in vitamins and calories to maintain your pet's energy and coat health.",
+    "image": "https://i.postimg.cc/1V5m0JTS/Feed-Your-Dog-in-Winters-900x600.jpg",
+    "category": "Nutrition"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Snow Walk & Safety Training",
+    "providerName": "PetSteps Academy",
+    "providerEmail": "train@petsteps.com",
+    "price": 28,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Teach your pet how to walk safely on snow and ice with proper gear and behavioral techniques.",
+    "image": "https://i.postimg.cc/Wz0dvywF/Winter-Dog-Walk-Header-Image-Social-Featured.png",
+    "category": "Training"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Health Checkup Package",
+    "providerName": "VetCare Plus",
+    "providerEmail": "care@vetcareplus.com",
+    "price": 35,
+    "rating": 5.0,
+    "slotsAvailable": 3,
+    "description": "Comprehensive winter wellness check including respiratory screening, joint care, and coat inspection.",
+    "image": "https://i.postimg.cc/4HNfvB0D/images-3.jpg",
+    "category": "Health"
+  }
+]
