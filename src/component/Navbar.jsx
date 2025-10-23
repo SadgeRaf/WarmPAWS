@@ -1,9 +1,13 @@
+import { Link} from "react-router";
+import Home from "../pages/Home";
+import Services from "../pages/Services";
+
 const Navbar = () => {
     const list = (
         <>
-            <li><a className="text-accent" href="#">Home</a></li>
-
-            <li><a className="text-accent" href="#">Services</a></li>
+            <Link to="/"><li className="text-accent mr-2">Home</li></Link>
+            <Link to="/profile"><li className="text-accent mr-2">My Profile</li></Link>
+            <Link to="/services"><li className="text-accent">Services</li></Link>
         </>
     );
 
@@ -49,7 +53,7 @@ const Navbar = () => {
 
             <div className="navbar-end">
                 <></>
-                <a className="btn bg-secondary text-primary">Log In</a>
+                <Link to='/auth/login' className="btn bg-secondary text-primary">Log In</Link>
             </div>
         </div>
     );

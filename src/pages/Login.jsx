@@ -1,39 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Register = () => {
+const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
       <div className="bg-white shadow-xl rounded-2xl w-full max-w-sm p-8 border border-gray-200">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Create an Account 🐾
+          Welcome Back 👋
         </h2>
 
         <fieldset className="space-y-4">
-          <div>
-            <label className="label text-gray-600">Full Name</label>
-            <input
-              type="text"
-              className="input input-bordered w-full"
-              placeholder="Your name"
-            />
-          </div>
-
           <div>
             <label className="label text-gray-600">Email</label>
             <input
               type="email"
               className="input input-bordered w-full"
-              placeholder="Your email"
-            />
-          </div>
-
-          <div>
-            <label className="label text-gray-600">Photo URL</label>
-            <input
-              type="text"
-              className="input input-bordered w-full"
-              placeholder="Profile picture link"
+              placeholder="Enter your email"
             />
           </div>
 
@@ -42,17 +24,23 @@ const Register = () => {
             <input
               type="password"
               className="input input-bordered w-full"
-              placeholder="Create a password"
+              placeholder="Enter your password"
             />
           </div>
 
-          <button className="btn btn-neutral w-full mt-2">Register</button>
+          <div className="flex justify-between items-center">
+            <a href="#" className="text-blue-500 text-sm hover:underline">
+              Forgot Password?
+            </a>
+          </div>
+
+          <button className="btn btn-neutral w-full mt-2">Login</button>
         </fieldset>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Already have an account?{' '}
-          <Link to='/auth/login' className="text-blue-500 hover:underline">
-            Login
+          Don’t have an account?{' '}
+          <Link to='/auth/registration' className="text-blue-500 hover:underline">
+            Sign up
           </Link>
         </p>
       </div>
@@ -60,4 +48,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

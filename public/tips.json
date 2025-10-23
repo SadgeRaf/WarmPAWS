@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "title": "Keep Them Warm Indoors",
+      "description": "Ensure your pets have a warm, draft-free place to sleep, preferably off the floor and away from cold areas.",
+      "image": "/images/keep-warm.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Hydrate and Moisturize",
+      "description": "Cold air can dry out your pet’s skin. Keep them hydrated and use vet-approved moisturizers if needed.",
+      "image": "/images/hydrate.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Watch Outdoor Time",
+      "description": "Limit outdoor play during extreme cold and consider protective clothing for short-haired pets.",
+      "image": "/images/outdoor.jpg"
+    }
+  ]

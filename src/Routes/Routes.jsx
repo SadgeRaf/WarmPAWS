@@ -1,9 +1,14 @@
 import { createBrowserRouter } from "react-router";
-import Registration from "../pages/Registration";
+import Login from "../pages/Login";
 import Details from "../component/Details"
 import HomeLayout from "../layout/HomeLayout";
 import Home from "../pages/Home";
 import Error from "../pages/Error";
+import Services from "../pages/Services";
+import Profile from "../pages/Profile";
+import Navbar from "../component/Navbar";
+import Register from "../pages/Registration";
+import AuthLayout from "../layout/AuthLayout";
 
 const router = createBrowserRouter(
     [
@@ -19,11 +24,29 @@ const router = createBrowserRouter(
                    path:"/details/:id",
                    element: <Details></Details>,
                    loader: ()=> fetch("/data.json"),
+                },
+                {
+                    path:"/services",
+                    element:<Services></Services>,
+                },
+                {
+                    path:"/profile",
+                    element:<Profile></Profile>,
                 }
             ]
         },{
             path:"/auth",
-            element:<Registration></Registration>
+            element:<AuthLayout></AuthLayout>,
+            children: [
+                {
+                    path:"/auth/login",
+                    element:<Login></Login>,
+                },
+                {
+                    path:"/auth/registration",
+                    element:<Register></Register>,
+                }
+            ]
         },{
             path:"/*",
             element:<Error></Error>

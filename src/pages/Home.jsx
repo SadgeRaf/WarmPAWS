@@ -4,12 +4,17 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from 'gsap';
 import Hero from '../component/Hero';
+import BookNow from '../component/BookNow';
+import Tips from '../component/tips';
+import Vets from '../component/vets';
+import { useNavigate } from 'react-router';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const bannerRef = useRef();
   const textRef = useRef();
+  const navigate = useNavigate();
   useGSAP(() => {
     gsap.from(bannerRef.current, {
       y: 50,
@@ -37,6 +42,10 @@ const Home = () => {
       ease: "power3.out",
     })
   });
+  
+  const handleNavigation = () => {
+    navigate('/services');
+  }
 
   return (
     <>
@@ -62,7 +71,7 @@ const Home = () => {
           <p className="text-lg md:text-xl mb-6 max-w-xl">
             Cozy up your furry friends with our winter care services.
           </p>
-          <button className="bg-secondary text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-base-200 hover:text-primary transition">
+          <button onClick={handleNavigation} className="bg-secondary text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-base-200 hover:text-primary transition">
             Explore Services
           </button>
         </div>
@@ -72,6 +81,16 @@ const Home = () => {
       <section className="relative w-11/12 mx-auto py-20 z-20 bg-base-100">
         <div ref={textRef} className='font-extrabold text-5xl mb-10'>EXPLORE WHAT WE HAVE TO OFFER</div>
         <Hero />
+      </section>
+
+      {/* Book now section */}
+      <section>
+         <BookNow></BookNow>
+      </section>
+      {/* Vets and other stuff */}
+      <section>
+        <Tips></Tips>
+        <Vets></Vets>
       </section>
     </>
   );

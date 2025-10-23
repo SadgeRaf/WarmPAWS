@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "Dr. Sarah Thompson",
+      "specialty": "Veterinary Surgeon",
+      "experience": "10+ years of experience in small animal surgery",
+      "image": "/images/vet1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Leo Ahmed",
+      "specialty": "Animal Nutrition Specialist",
+      "experience": "Expert in customized diet plans for cats and dogs",
+      "image": "/images/vet2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Emma Li",
+      "specialty": "Pet Behaviorist",
+      "experience": "Helps improve your pet’s mental well-being and behavior",
+      "image": "/images/vet3.jpg"
+    }
+  ]
