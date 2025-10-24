@@ -8,6 +8,7 @@ import Services from "../pages/Services";
 import Profile from "../pages/Profile";
 import Register from "../pages/Registration";
 import AuthLayout from "../layout/AuthLayout";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 const router = createBrowserRouter(
     [
@@ -21,16 +22,28 @@ const router = createBrowserRouter(
                 },
                 {
                    path:"/details/:id",
-                   element: <Details></Details>,
+                   element: (
+                    <PrivateRoute>
+                        <Details></Details>
+                    </PrivateRoute>
+                   ),
                    loader: ()=> fetch("/data.json"),
                 },
                 {
                     path:"/services",
-                    element:<Services></Services>,
+                    element: (
+                        <PrivateRoute>
+                            <Services></Services>
+                        </PrivateRoute>
+                    ),
                 },
                 {
                     path:"/profile",
-                    element:<Profile></Profile>,
+                    element:(
+                        <PrivateRoute>
+                            <Profile></Profile>
+                        </PrivateRoute>
+                    ),
                 }
             ]
         },{

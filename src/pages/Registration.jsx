@@ -1,14 +1,16 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { FaEye } from "react-icons/fa";
 import { IoIosEyeOff } from "react-icons/io";
 
 const Register = () => {
-  const { createUser, setUser } = useContext(AuthContext);
+  const { createUser, setUser,updateUser } = useContext(AuthContext);
   const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -28,7 +30,13 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
-        setUser(user);
+        updateUser({displaName : name, photoURL: photo}).then(()=>{
+           setUser({...user, displaName : name, photoURL: photo});
+           navigate("/");
+        }).catch((error)=>{
+           toast.error(error.message);
+        });
+        
         toast.success('✅ Account registered successfully!');
         form.reset();
       })

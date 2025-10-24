@@ -1,5 +1,5 @@
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { FaEye } from "react-icons/fa";
@@ -9,6 +9,8 @@ const Login = () => {
   const {logIn,setUser} = use(AuthContext);
   const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -27,9 +29,11 @@ const Login = () => {
       const user = res.user;
       setUser(user);
       toast.success("Logged in Succesfully");
+      navigate(`${location.state ? location.state : '/'}`);
       form.reset();
     }).catch((error)=>{
       toast.error(error.message);
+      setPasswordError(error.message);
     })
     
   }
