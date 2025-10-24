@@ -22,8 +22,8 @@ const Card = ({ data }) => {
         <h2 className="card-title text-accent">{data.serviceName}</h2>
         <p className='text-base-200'>{data.description}</p>
         <div className='flex items-center justify-between gap-4'>
-          <p className='text-amber-500  bg-green-500 text-center rounded-3xl'>{data.rating}</p>
-          <p className='text-green-500 bg-amber-500 text-center rounded-3xl'>{data.price} $</p>
+          <p className='text-amber-500  bg-amber-100 text-center rounded-3xl'>{data.rating}</p>
+          <p className='text-green-500 bg-green-100 text-center rounded-3xl'>{data.price} $</p>
         </div>
         <div className="card-actions justify-center mt-2">
           <button onClick={handleChange} className="btn btn-secondary">View Details</button>

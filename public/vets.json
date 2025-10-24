@@ -4,20 +4,20 @@
       "name": "Dr. Sarah Thompson",
       "specialty": "Veterinary Surgeon",
       "experience": "10+ years of experience in small animal surgery",
-      "image": "/images/vet1.jpg"
+      "image": "https://i.postimg.cc/C1JsSDdH/veterinarian-check-ing-puppy-s-health-23-2148728396.avif"
     },
     {
       "id": 2,
       "name": "Dr. Leo Ahmed",
       "specialty": "Animal Nutrition Specialist",
       "experience": "Expert in customized diet plans for cats and dogs",
-      "image": "/images/vet2.jpg"
+      "image": "https://i.postimg.cc/vBXtb9Dt/istockphoto-485732951-612x612.jpg"
     },
     {
       "id": 3,
       "name": "Dr. Emma Li",
       "specialty": "Pet Behaviorist",
       "experience": "Helps improve your pet’s mental well-being and behavior",
-      "image": "/images/vet3.jpg"
+      "image": "https://i.postimg.cc/SsVfk8jc/asian-female-veterinarian-examining-cat-s-medical-condition-296537-5294.avif"
     }
   ]

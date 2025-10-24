@@ -14,16 +14,18 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    
     const pattern = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
     if (!pattern.test(password)){
-      setPasswordError('Password must be atlest 6 characters long');
+      setPasswordError('Password must be atlest 6 characters long and needs to have atleast 1 uppercase and 1 lowercase');
       return ;
     }
 
     setPasswordError('');
 
     logIn(email,password).then((res)=>{
-      setUser(res.user);
+      const user = res.user;
+      setUser(user);
       toast.success("Logged in Succesfully");
       form.reset();
     }).catch((error)=>{
@@ -47,6 +49,7 @@ const Login = () => {
           <div>
             <label className="label text-gray-600">Email</label>
             <input
+              name='email'
               type="email"
               className="input input-bordered w-full"
               placeholder="Enter your email"
@@ -57,6 +60,7 @@ const Login = () => {
           <div className='relative'>
             <label className="label text-gray-600">Password</label>
             <input
+              name='password'
               type={showPassword ? 'text' : "password"}
               className="input input-bordered w-full"
               placeholder="Enter your password"

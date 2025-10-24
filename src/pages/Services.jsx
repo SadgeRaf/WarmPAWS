@@ -1,4 +1,6 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+
 
 const services = [
   {
@@ -6,7 +8,8 @@ const services = [
     name: 'Pet Grooming',
     provider: 'Happy Paws',
     email: 'contact@happypaws.com',
-    image: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=80',
+    image:
+      'https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=800&q=80',
     description:
       'Professional grooming services for your pets, including baths, haircuts, and nail trims to keep your pets healthy and happy.',
     rating: 4.8,
@@ -18,7 +21,8 @@ const services = [
     name: 'Pet Sitting',
     provider: 'Cozy Pets',
     email: 'info@cozypets.com',
-    image: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=80',
+    image:
+      'https://i.postimg.cc/Wz0dvywF/Winter-Dog-Walk-Header-Image-Social-Featured.png',
     description:
       'Reliable pet sitting services for your furry friends while you are away. We provide love, attention, and exercise for your pets.',
     rating: 4.9,
@@ -30,7 +34,8 @@ const services = [
     name: 'Veterinary Care',
     provider: 'Healthy Paws Clinic',
     email: 'vet@healthypaws.com',
-    image: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=80',
+    image:
+      'https://i.postimg.cc/SsVfk8jc/asian-female-veterinarian-examining-cat-s-medical-condition-296537-5294.avif',
     description:
       'Full veterinary services including checkups, vaccinations, and emergency care to keep your pets in top condition.',
     rating: 4.7,
@@ -40,11 +45,20 @@ const services = [
 ];
 
 const Services = () => {
+  const handleBookNow = (e) => {
+    e.preventDefault();
+    toast.success('✅ Service booked successfully!');
+    e.target.reset();
+  };
+
   return (
     <section className="max-w-6xl mx-auto py-16 px-4">
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Our Services</h2>
+      <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+        Our Services
+      </h2>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      {/* Services Grid */}
+      <div className="grid md:grid-cols-3 gap-8 mb-16">
         {services.map((service) => (
           <div
             key={service.id}
@@ -56,19 +70,62 @@ const Services = () => {
               className="w-full h-56 object-cover"
             />
             <div className="p-6 space-y-3">
-              <h3 className="text-2xl font-semibold text-gray-800">{service.name}</h3>
+              <h3 className="text-2xl font-semibold text-gray-800">
+                {service.name}
+              </h3>
               <p className="text-indigo-600 font-medium">{service.provider}</p>
               <p className="text-gray-600 text-sm">{service.email}</p>
               <p className="text-gray-700">{service.description}</p>
 
               <div className="flex justify-between items-center mt-4">
-                <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-lg font-semibold shadow">{service.rating} ⭐</span>
-                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-lg font-semibold shadow">{service.slotsAvailable} Slots</span>
-                <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg font-semibold shadow">{service.price} $</span>
+                <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-lg font-semibold shadow">
+                  {service.rating} ⭐
+                </span>
+                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-lg font-semibold shadow">
+                  {service.slotsAvailable} Slots
+                </span>
+                <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg font-semibold shadow">
+                  ${service.price}
+                </span>
               </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Book Service Form */}
+      <div className="max-w-md mx-auto bg-white shadow-lg rounded-xl p-8 border border-gray-200">
+        <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+          Book Service
+        </h3>
+
+        <form onSubmit={handleBookNow} className="space-y-4">
+          <div>
+            <label className="label text-gray-600">Name</label>
+            <input
+              type="text"
+              name="name"
+              className="input input-bordered w-full"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="label text-gray-600">Email</label>
+            <input
+              type="email"
+              name="email"
+              className="input input-bordered w-full"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn btn-neutral w-full mt-2">
+            Book Now
+          </button>
+        </form>
       </div>
     </section>
   );
