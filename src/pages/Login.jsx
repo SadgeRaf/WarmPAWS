@@ -9,7 +9,7 @@ const Login = () => {
           Welcome Back 👋
         </h2>
 
-        <fieldset className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="label text-gray-600">Email</label>
             <input
@@ -34,8 +34,8 @@ const Login = () => {
             </a>
           </div>
 
-          <button className="btn btn-neutral w-full mt-2">Login</button>
-        </fieldset>
+          <button type='submit' className="btn btn-neutral w-full mt-2">Login</button>
+        </form>
 
         <p className="text-center text-sm text-gray-500 mt-6">
           Don’t have an account?{' '}

@@ -6,7 +6,6 @@ import Home from "../pages/Home";
 import Error from "../pages/Error";
 import Services from "../pages/Services";
 import Profile from "../pages/Profile";
-import Navbar from "../component/Navbar";
 import Register from "../pages/Registration";
 import AuthLayout from "../layout/AuthLayout";
 

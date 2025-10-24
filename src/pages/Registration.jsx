@@ -1,7 +1,30 @@
 import React from 'react';
+import { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider'
+import { toast } from 'react-toastify';
 
 const Register = () => {
+  const {createUser,setUser} = use(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    createUser(email,password)
+     .then((res)=>{
+       const user = res.user;
+       setUser(user);
+       toast.success('✅ Account registered successfully!');
+       form.reset();
+     }).catch((error)=> {
+       const errorMessage = error.message;
+       toast.error(errorMessage);
+     })
+  }
+  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
       <div className="bg-white shadow-xl rounded-2xl w-full max-w-sm p-8 border border-gray-200">
@@ -9,45 +32,29 @@ const Register = () => {
           Create an Account 🐾
         </h2>
 
-        <fieldset className="space-y-4">
+        <form onSubmit={handleRegister} className="space-y-4">
           <div>
             <label className="label text-gray-600">Full Name</label>
-            <input
-              type="text"
-              className="input input-bordered w-full"
-              placeholder="Your name"
-            />
+            <input name='name' type="text" className="input input-bordered w-full" placeholder="Your name" required/>
           </div>
 
           <div>
             <label className="label text-gray-600">Email</label>
-            <input
-              type="email"
-              className="input input-bordered w-full"
-              placeholder="Your email"
-            />
+            <input name='email' type="email" className="input input-bordered w-full" placeholder="Your email" required/>
           </div>
 
           <div>
             <label className="label text-gray-600">Photo URL</label>
-            <input
-              type="text"
-              className="input input-bordered w-full"
-              placeholder="Profile picture link"
-            />
+            <input name='photo' type="text" className="input input-bordered w-full" placeholder="Profile picture link" required/>
           </div>
 
           <div>
             <label className="label text-gray-600">Password</label>
-            <input
-              type="password"
-              className="input input-bordered w-full"
-              placeholder="Create a password"
-            />
+            <input name='password' type="password" className="input input-bordered w-full" placeholder="Create a password" required/>
           </div>
 
-          <button className="btn btn-neutral w-full mt-2">Register</button>
-        </fieldset>
+          <button type='submit' className="btn btn-neutral w-full mt-2">Register</button>
+        </form>
 
         <p className="text-center text-sm text-gray-500 mt-6">
           Already have an account?{' '}
