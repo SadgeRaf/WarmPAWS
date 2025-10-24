@@ -1,16 +1,24 @@
-import { Link} from "react-router";
-import Home from "../pages/Home";
-import Services from "../pages/Services";
+import { Link, NavLink} from "react-router";
+import { use } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+    const {user,logOut} = use(AuthContext);
     const list = (
         <>
-            <Link to="/"><li className="text-accent mr-2">Home</li></Link>
-            <Link to="/profile"><li className="text-accent mr-2">My Profile</li></Link>
-            <Link to="/services"><li className="text-accent">Services</li></Link>
+            <NavLink to="/"><li className="text-accent mr-2">Home</li></NavLink>
+            <NavLink to="/profile"><li className="text-accent mr-2">My Profile</li></NavLink>
+            <NavLink to="/services"><li className="text-accent">Services</li></NavLink>
         </>
     );
-
+    const handleLogOut = () => {
+        logOut().then(()=>{
+          toast.success("Logged out Succesfully!")
+        }).catch((error)=>{
+          toast.error(error.message);
+        });
+    }
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -52,8 +60,11 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end">
-                <></>
-                <Link to='/auth/login' className="btn bg-secondary text-primary">Log In</Link>
+                {/*<{user && user.photo}></>*/}
+                {
+                    user ? <button onClick={handleLogOut} className="btn bg-secondary text-primary">Log Out</button> : <Link to='/auth/login' className="btn bg-secondary text-primary">Log In</Link>
+                }
+                
             </div>
         </div>
     );

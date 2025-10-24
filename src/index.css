@@ -12,3 +12,8 @@
   --color-base-200: #e6bbad;
   --color-accent: #adbce6;
 }
+
+.active {
+  color: #e6bbad;
+  text-decoration: underline;
+}
