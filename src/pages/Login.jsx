@@ -42,6 +42,10 @@ const Login = () => {
     e.preventDefault();
     setShowPassword(!showPassword);
   }
+
+  const handlePasswordReset = () => {
+    navigate("/forgot");
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
       <div className="bg-white shadow-xl rounded-2xl w-full max-w-sm p-8 border border-gray-200">
@@ -80,9 +84,9 @@ const Login = () => {
           </div>
 
           <div className="flex justify-between items-center">
-            <a href="#" className="text-blue-500 text-sm hover:underline">
+            <button onClick={handlePasswordReset} className="text-blue-500 text-sm hover:underline">
               Forgot Password?
-            </a>
+            </button>
           </div>
 
           <button type='submit' className="btn btn-neutral w-full mt-2">Login</button>

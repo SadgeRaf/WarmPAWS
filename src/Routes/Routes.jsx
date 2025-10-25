@@ -9,6 +9,7 @@ import Profile from "../pages/Profile";
 import Register from "../pages/Registration";
 import AuthLayout from "../layout/AuthLayout";
 import PrivateRoute from "../Provider/PrivateRoute";
+import ForgotPassword from "../pages/forgot";
 
 const router = createBrowserRouter(
     [
@@ -46,7 +47,8 @@ const router = createBrowserRouter(
                     ),
                 }
             ]
-        },{
+        },
+        {
             path:"/auth",
             element:<AuthLayout></AuthLayout>,
             children: [
@@ -59,7 +61,12 @@ const router = createBrowserRouter(
                     element:<Register></Register>,
                 }
             ]
-        },{
+        },
+        {
+            path:"/forgot",
+            element:<ForgotPassword></ForgotPassword>,
+        },
+        {
             path:"/*",
             element:<Error></Error>
         }
