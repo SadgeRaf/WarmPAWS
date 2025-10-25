@@ -1,12 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, use } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { FaEye } from "react-icons/fa";
 import { IoIosEyeOff } from "react-icons/io";
+import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, setUser,updateUser } = useContext(AuthContext);
+  const { createUser, setUser,updateUser,googleSignUp } = use(AuthContext);
   const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
@@ -48,6 +49,18 @@ const Register = () => {
    const handleToggle = (e) => {
     e.preventDefault();
     setShowPassword(!showPassword);
+  }
+
+  const handleGoogle = () => {
+    googleSignUp()
+    .then(res => {
+      const user = res.user;
+      setUser(user);
+      toast.success("Signed up with Google!")
+    })
+    .catch(error=>{
+      toast.error(error.message);
+    })
   }
 
   return (
@@ -125,6 +138,12 @@ const Register = () => {
             Login
           </Link>
         </p>
+
+        <div className='flex justify-center items-center flex-row relative'>
+          <button onClick={handleGoogle} className="btn w-full mt-2 ">Sign up with <span className='text-blue-500'>Google</span></button>
+          <FaGoogle className='absolute left-57 top-5'/>
+        </div>
+        
       </div>
     </div>
   );
