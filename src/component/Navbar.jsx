@@ -2,6 +2,7 @@ import { Link, NavLink} from "react-router";
 import { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from 'react-toastify';
+import drawing from "../assets/videos/123860717_p0_master1200.jpg"
 
 const Navbar = () => {
     const {user,logOut} = use(AuthContext);
@@ -60,7 +61,7 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end">
-                <img className="w-12 rounded-full" src={`${user ? user.photoURL : "" }`}></img>
+                <img className="w-12 rounded-full" src={`${user ? user.photoURL : drawing }`}></img>
                 {
                     user ? <button onClick={handleLogOut} className="btn bg-secondary text-primary">Log Out</button> : <Link to='/auth/login' className="btn bg-secondary text-primary">Log In</Link>
                 }

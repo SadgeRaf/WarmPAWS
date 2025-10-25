@@ -30,8 +30,8 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
-        updateUser({displaName : name, photoURL: photo}).then(()=>{
-           setUser({...user, displaName : name, photoURL: photo});
+        updateUser({displayName : name, photoURL: photo}).then(()=>{
+           setUser({...user, displayName : name, photoURL: photo});
            navigate("/");
         }).catch((error)=>{
            toast.error(error.message);
