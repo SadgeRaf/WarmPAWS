@@ -10,6 +10,7 @@ import Register from "../pages/Registration";
 import AuthLayout from "../layout/AuthLayout";
 import PrivateRoute from "../Provider/PrivateRoute";
 import ForgotPassword from "../pages/forgot";
+import Loading from "../component/Loading";
 
 const router = createBrowserRouter(
     [
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
                     </PrivateRoute>
                    ),
                    loader: ()=> fetch("/data.json"),
+                   hydrateFallbackElement: <Loading></Loading>,
                 },
                 {
                     path:"/services",

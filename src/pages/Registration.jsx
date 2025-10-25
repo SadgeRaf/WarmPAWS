@@ -4,10 +4,10 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { FaEye } from "react-icons/fa";
 import { IoIosEyeOff } from "react-icons/io";
-import { FaGoogle } from "react-icons/fa";
+
 
 const Register = () => {
-  const { createUser, setUser,updateUser,googleSignUp } = use(AuthContext);
+  const { createUser, setUser,updateUser } = use(AuthContext);
   const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
@@ -51,17 +51,7 @@ const Register = () => {
     setShowPassword(!showPassword);
   }
 
-  const handleGoogle = () => {
-    googleSignUp()
-    .then(res => {
-      const user = res.user;
-      setUser(user);
-      toast.success("Signed up with Google!")
-    })
-    .catch(error=>{
-      toast.error(error.message);
-    })
-  }
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
@@ -139,10 +129,7 @@ const Register = () => {
           </Link>
         </p>
 
-        <div className='flex justify-center items-center flex-row relative'>
-          <button onClick={handleGoogle} className="btn w-full mt-2 ">Sign up with <span className='text-blue-500'>Google</span></button>
-          <FaGoogle className='absolute left-57 top-5'/>
-        </div>
+        
         
       </div>
     </div>

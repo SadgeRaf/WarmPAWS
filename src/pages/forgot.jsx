@@ -1,9 +1,11 @@
 import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const ForgotPassword = () => {
   const { resetPassword } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleReset = (e) => {
     e.preventDefault();
@@ -17,6 +19,10 @@ const ForgotPassword = () => {
         toast.error(error.message);
       });
   };
+  
+  const handleNavigate = () => {
+    navigate("/");
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -39,11 +45,13 @@ const ForgotPassword = () => {
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-all">
+            className="w-full bg-secondary text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-all">
             Send Reset Link
           </button>
         </form>
+        <button onClick={handleNavigate} className="w-full bg-base-200 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-all mt-4">Go Back</button>
       </div>
+      
     </div>
   );
 };

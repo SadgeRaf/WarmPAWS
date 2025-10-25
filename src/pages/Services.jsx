@@ -57,7 +57,6 @@ const Services = () => {
         Our Services
       </h2>
 
-      {/* Services Grid */}
       <div className="grid md:grid-cols-3 gap-8 mb-16">
         {services.map((service) => (
           <div
@@ -93,7 +92,6 @@ const Services = () => {
         ))}
       </div>
 
-      {/* Book Service Form */}
       <div className="max-w-md mx-auto bg-white shadow-lg rounded-xl p-8 border border-gray-200">
         <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Book Service

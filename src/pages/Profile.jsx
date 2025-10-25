@@ -5,7 +5,6 @@ import drawing from "../assets/videos/123860717_p0_master1200.jpg"
 
 const Profile = () => {
     const {user, setUser, updateUser} = use(AuthContext);
-    console.log(user);
     const handleUpdate = (e) => {
         e.preventDefault();
         const form = e.target;
